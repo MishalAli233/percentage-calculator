@@ -1,15 +1,37 @@
+
 function calculatePercentage() {
-  const obtained = parseFloat(document.getElementById("obtained").value);
-  const total = parseFloat(document.getElementById("total").value);
+    let number = document.getElementById("number").value;
+    let percent = document.getElementById("percent").value;
 
-  if (isNaN(obtained) || isNaN(total) || total <= 0) {
+    if (number === "" || percent === "") {
+        document.getElementById("result").innerHTML = "Please enter values";
+        return;
+    }
+
+    let result = (number * percent) / 100;
+
     document.getElementById("result").innerHTML =
-      "Please enter valid marks.";
-    return;
-  }
+        percent + "% of " + number + " = " + result;
+}
 
-  const percentage = (obtained / total) * 100;
 
-  document.getElementById("result").innerHTML =
-    "Percentage: " + percentage.toFixed(2) + "%";
+function increasePercentage() {
+    let number = Number(document.getElementById("number").value);
+    let percent = Number(document.getElementById("percent").value);
+
+    let result = number + (number * percent / 100);
+
+    document.getElementById("result").innerHTML =
+        "After Increase = " + result;
+}
+
+
+function decreasePercentage() {
+    let number = Number(document.getElementById("number").value);
+    let percent = Number(document.getElementById("percent").value);
+
+    let result = number - (number * percent / 100);
+
+    document.getElementById("result").innerHTML =
+        "After Decrease = " + result;
 }
